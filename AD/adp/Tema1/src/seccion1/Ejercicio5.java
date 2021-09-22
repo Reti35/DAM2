@@ -1,24 +1,19 @@
 package seccion1;
 
-import java.io.File;
-import java.io.FilenameFilter;
+//import java.io.File;
 
-public class Ejercicio5 implements FilenameFilter{
+//import holamundo.FiltroExtension;
+
+public class Ejercicio5{
 
 	public static void main(String[] args) {
 		
-		File directorio = new File(args[0]);
-		String extension = args[1];
+		//File directori = new File(args[0]);
 		
-		directorio.list();
+		//String[] lista = directori.list(new FiltroExtension(".txt"));
+		
+		
 
-	}
-
-	@Override
-	public boolean accept(File dir, String name) {
-		
-		return name.endsWith();
-		
 	}
 
 }
