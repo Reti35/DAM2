@@ -29,7 +29,13 @@ public class Actividad8 {
 			
 			System.out.println("Mayo");
 			
+		}else if (num1==6) {
+			
+			System.out.println("Junio");
+			
 		}
+		
+		sc.close();
 		
 	}
 
