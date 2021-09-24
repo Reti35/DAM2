@@ -5,7 +5,7 @@
     <fullyQualifiedTypeName name="jdk.internal.misc.FileSystemOption"/>
     <fullyQualifiedTypeName name="java.io.FilenameFilter"/>
     <fullyQualifiedTypeName name="java.lang.String"/>
+    <fullyQualifiedTypeName name="java.util.Date"/>
     <fullyQualifiedTypeName name="java.io.File"/>
     <fullyQualifiedTypeName name="holamundo.FiltroExtension"/>
-    <fullyQualifiedTypeName name="java.util.Date"/>
 </qualifiedTypeNameHistroy>
