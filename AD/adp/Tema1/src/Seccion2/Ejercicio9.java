@@ -4,7 +4,7 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 
-public class Ejercicio1 {
+public class Ejercicio9 {
 
 	public static void main(String[] args) {
 

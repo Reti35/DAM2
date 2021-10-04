@@ -4,7 +4,7 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 
-public class Ejercicio2 {
+public class Ejercicio11 {
 
 	public static void main(String[] args) {
 		int caracter;
@@ -30,5 +30,4 @@ public class Ejercicio2 {
 		}
 
 	}
-
 }
