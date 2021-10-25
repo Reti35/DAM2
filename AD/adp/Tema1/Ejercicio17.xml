@@ -2,8 +2,8 @@
 <biblioteca>
 	<libro>
 		<titulo>Your name</titulo>
-		<autor>Makoto Shinkai</autor>
-		<fechaPublicacion>2016</fechaPublicacion>
+		<autor>Makoto Shinkai</autor><fechaPublicacion>2016</fechaPublicacion>
+		
 	</libro>
 	<libro>
 		<titulo>JoJo's Bizarre Adventure Part I: Phantom Blood</titulo>
