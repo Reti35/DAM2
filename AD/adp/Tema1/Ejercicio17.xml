@@ -6,12 +6,12 @@
 		<fechaPublicacion>2016</fechaPublicacion>
 	</libro>
 	<libro>
-		<titulo> JoJo's Bizarre Adventure Part I: Phantom Blood</titulo>
-		<autor>	Hirohiko Araki</autor>
+		<titulo>JoJo's Bizarre Adventure Part I: Phantom Blood</titulo>
+		<autor>Hirohiko Araki</autor>
 		<fechaPublicacion>1986</fechaPublicacion>
 	</libro>
 	<libro>
-		<autor>My hero academia</autor>
+		<titulo>My hero academia</titulo>
 		<autor>Kohei Horikoshi</autor>
 		<fechaPublicacion>2014</fechaPublicacion>
 	</libro>

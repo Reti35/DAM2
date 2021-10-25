@@ -1,4 +1,4 @@
-package seccion2;
+package Seccion2;
 
 import java.io.File;
 import java.io.FileReader;
