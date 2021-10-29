@@ -99,6 +99,10 @@ public class Main {
 				biblioteca.borrarLlibre(identificador);
 				
 				break;
+				
+			case 6:
+				
+				break;
 
 			default:
 				
