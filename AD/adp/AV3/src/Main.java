@@ -8,6 +8,11 @@ public class Main {
 		
 		int opcio = 0;
 		int identificador = 0;
+		String titol;
+		String autor;
+		int anyPublicacio;
+		String editorial;
+		int nombrePagines;
 		Biblioteca biblioteca = new Biblioteca();
 		
 		System.out.println("Benvingut a la biblioteca");
@@ -30,7 +35,7 @@ public class Main {
 				
 				ArrayList<Llibre> llista = biblioteca.recuperarTots();
 				
-				for (int i = 1; i < llista.size(); i++) {
+				for (int i = 0; i < llista.size(); i++) {
 					
 					biblioteca.mostrarLlibre(llista.get(i));
 					System.out.println("");
@@ -49,8 +54,33 @@ public class Main {
 				break;
 				
 			case 3:
+				Llibre llibre = new Llibre();
 				
-				// TODO case 3
+				System.out.println("Introduiu l'identificador : ");
+				identificador = sc.nextInt();
+				llibre.setIdentificador(identificador);
+				
+				System.out.println("Introduiu el titol : ");
+				titol = sc.nextLine();
+				llibre.setTitol(titol);
+				
+				System.out.println("Introduiu l'autor : ");
+				autor = sc.nextLine();
+				llibre.setAutor(autor);
+				
+				System.out.println("Introduiu l'any de publicació : ");
+				anyPublicacio = sc.nextInt();
+				llibre.setAnyPublicacio(anyPublicacio);
+				
+				System.out.println("Introduiu l'editorial : ");
+				editorial = sc.nextLine();
+				llibre.setEditorial(editorial);
+				
+				System.out.println("Introduiu el nombre de pagines : ");
+				nombrePagines = sc.nextInt();
+				llibre.setNombrePagines(nombrePagines);
+				
+				System.out.println("Identificador del nou llibre : " + biblioteca.crearLlibre(llibre));
 				
 				break;
 				
@@ -59,6 +89,16 @@ public class Main {
 				System.out.println("Introduiu el identificador del llibre que voleu actualitzar : ");
 				identificador = sc.nextInt();
 				biblioteca.actualitzaLlibre(identificador);
+				
+				break;
+				
+			case 5:
+				
+				System.out.println("Introduiu l'identificador del llibre a borrar : ");
+				identificador = sc.nextInt();
+				biblioteca.borrarLlibre(identificador);
+				
+				break;
 
 			default:
 				
@@ -70,6 +110,8 @@ public class Main {
 			
 			
 		} while (opcio != 6);
+		
+		System.out.println("Gracias por utilizar este programa");
 		
 		sc.close();
 	}

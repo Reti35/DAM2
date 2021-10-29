@@ -6,6 +6,12 @@ import java.util.Scanner;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
+import javax.xml.transform.Result;
+import javax.xml.transform.Source;
+import javax.xml.transform.Transformer;
+import javax.xml.transform.TransformerFactory;
+import javax.xml.transform.dom.DOMSource;
+import javax.xml.transform.stream.StreamResult;
 
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
@@ -27,11 +33,11 @@ public class Biblioteca {
 		// TODO crearLlibre
 
 		try {
-			
+
 			DocumentBuilder newDocumentBuilder = DocumentBuilderFactory.newInstance().newDocumentBuilder();
 			Document doc = newDocumentBuilder.parse("Biblioteca.xml");
 			Element root = doc.getDocumentElement();
-			
+
 			Element llibres = doc.createElement("llibre");
 			Element identificador = doc.createElement("identificador");
 			Element titol = doc.createElement("titol");
@@ -39,23 +45,28 @@ public class Biblioteca {
 			Element anyPublicacio = doc.createElement("anyPublicacio");
 			Element editorial = doc.createElement("editorial");
 			Element nombrePagines = doc.createElement("nombrePagines");
-			
-			identificador.setTextContent(String.valueOf(llibre.getIdentificador()));
-			titol.setTextContent(llibre.getTitol());
-			autor.setTextContent(llibre.getAutor());
-			anyPublicacio.setTextContent(String.valueOf(llibre.getAnyPublicacio()));
-			editorial.setTextContent(llibre.getEditorial());
-			nombrePagines.setTextContent(String.valueOf(llibre.getNombrePagines()));
-			
+
+			root.appendChild(llibres);
+
 			llibres.appendChild(identificador);
 			llibres.appendChild(titol);
 			llibres.appendChild(autor);
 			llibres.appendChild(anyPublicacio);
 			llibres.appendChild(editorial);
 			llibres.appendChild(nombrePagines);
-			
-			root.appendChild(llibres);
-			
+
+			identificador.setTextContent(String.valueOf(llibre.getIdentificador()));
+			titol.setTextContent(llibre.getTitol());
+			autor.setTextContent(llibre.getAutor());
+			anyPublicacio.setTextContent(String.valueOf(llibre.getAnyPublicacio()));
+			editorial.setTextContent(llibre.getEditorial());
+			nombrePagines.setTextContent(String.valueOf(llibre.getNombrePagines()));
+
+			Transformer transformer = TransformerFactory.newInstance().newTransformer();
+			Source source = new DOMSource(doc);
+			Result result = new StreamResult("Biblioteca.xml");
+			transformer.transform(source, result);
+
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -72,17 +83,7 @@ public class Biblioteca {
 	public Llibre recuperarLlibre(int identificador) {
 
 		ArrayList<Llibre> llista = recuperarTots();
-		Llibre llibre = new Llibre();
-		
-		for (int i = 0; i < llista.size(); i++) {
-			
-			if (llista.get(i).getIdentificador() == identificador) {
-				
-				llibre = llista.get(i);
-				
-			}
-			
-		}
+		Llibre llibre = llista.get(identificador);
 
 		return llibre;
 
@@ -97,6 +98,7 @@ public class Biblioteca {
 
 		try {
 
+			int identificador = llibre.getIdentificador();
 			DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
 			DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
 			Document document = dBuilder.parse(new File("Biblioteca.xml"));
@@ -105,28 +107,30 @@ public class Biblioteca {
 			System.out.println("Contingut XML " + raiz.getNodeName() + ":");
 			NodeList nodeList = document.getElementsByTagName("llibre");
 
-			for (int i = 0; i < nodeList.getLength(); i++) {
+			Node node = nodeList.item(identificador);
+			System.out.println("");
 
-				Node node = nodeList.item(i);
+			if (node.getNodeType() == Node.ELEMENT_NODE) {
+
+				Element eElement = (Element) node;
+				System.out.println(
+						"Identificador : " + eElement.getElementsByTagName("identificador").item(0).getTextContent());
+				System.out.println("Titol : " + eElement.getElementsByTagName("titol").item(0).getTextContent());
+				System.out.println("Autor : " + eElement.getElementsByTagName("autor").item(0).getTextContent());
+				System.out.println("Any de publicació : "
+						+ eElement.getElementsByTagName("anyPublicacio").item(0).getTextContent());
+				System.out
+						.println("Editorial : " + eElement.getElementsByTagName("editorial").item(0).getTextContent());
+				System.out.println("Nombre de pagines : "
+						+ eElement.getElementsByTagName("nombrePagines").item(0).getTextContent());
 				System.out.println("");
 
-				if (node.getNodeType() == Node.ELEMENT_NODE) {
-
-					Element eElement = (Element) node;
-					System.out.println("Identificador : " + eElement.getElementsByTagName("identificador").item(0).getTextContent());
-					System.out.println("Titol : " + eElement.getElementsByTagName("titol").item(0).getTextContent());
-					System.out.println("Autor : " + eElement.getElementsByTagName("autor").item(0).getTextContent());
-					System.out.println("Any de publicació : " + eElement.getElementsByTagName("anyPublicacio").item(0).getTextContent());
-					System.out.println("Editorial : " + eElement.getElementsByTagName("editorial").item(0).getTextContent());
-					System.out.println("Nombre de pagines : " + eElement.getElementsByTagName("nombrePagines").item(0).getTextContent());
-
-				}
 			}
 
 		} catch (Exception e) {
-			
+
 			e.printStackTrace();
-			
+
 		}
 
 	}
@@ -140,28 +144,32 @@ public class Biblioteca {
 
 		// TODO borrarLlibre
 		try {
-						
+
 			DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
 			DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
 			Document document = dBuilder.parse(new File("Biblioteca.xml"));
-			
-			NodeList items = document.getElementsByTagName("libro");
+
+			NodeList items = document.getElementsByTagName("llibre");
 			for (int i = 0; i < items.getLength(); i++) {
-			    Element element = (Element) items.item(i);
-			    // elejir un elemento especifico por algun atributo
-			    if (element.getAttribute("identificador").equals(identificador)) {
-			        // borrar elemento
-			        element.getParentNode().removeChild(element);
-			    }
+				Element element = (Element) items.item(i);
+				// elejir un elemento especifico por algun atributo
+				if (element.getElementsByTagName("identificador").item(0).getTextContent()
+						.equalsIgnoreCase(String.valueOf(identificador))) {
+					// borrar elemento
+					element.getParentNode().removeChild(element);
+				}
 			}
-			
-			
+
+			Transformer transformer = TransformerFactory.newInstance().newTransformer();
+			Result output = new StreamResult(new File("Biblioteca.xml"));
+			Source input = new DOMSource(document);
+			transformer.transform(input, output);
+
 		} catch (Exception e) {
-			
+
 			e.printStackTrace();
-			
+
 		}
-		
 
 	}
 
@@ -171,31 +179,34 @@ public class Biblioteca {
 	 * @param identificador
 	 */
 	public void actualitzaLlibre(int identificador) {
+		@SuppressWarnings("resource")
 		Scanner sc = new Scanner(System.in);
-		
+
 		Llibre llibre = recuperarLlibre(identificador);
 		
+		borrarLlibre(identificador);
+
 		System.out.println("Introduiu el titol : ");
-		String titol = sc.next();
+		String titol = sc.nextLine();
 		llibre.setTitol(titol);
-		
+
 		System.out.println("Introduiu l'autor : ");
-		String autor = sc.next();
+		String autor = sc.nextLine();
 		llibre.setAutor(autor);
-		
+
 		System.out.println("Introduiu l'any de publicació : ");
 		int anyPublicacio = sc.nextInt();
 		llibre.setAnyPublicacio(anyPublicacio);
-		
+
 		System.out.println("Introduiu l'editorial : ");
-		String editorial = sc.next();
+		String editorial = sc.nextLine();
 		llibre.setEditorial(editorial);
-		
+
 		System.out.println("Introduiu el nombre de pagines : ");
 		int nombrePagines = sc.nextInt();
 		llibre.setNombrePagines(nombrePagines);
 		
-		
+		crearLlibre(llibre);
 
 	}
 
