@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<llibres>
+	<llibre>
+		<identificador>1</identificador>
+		<titol>luisgarcia</titol>
+		<autor>Luis Garcia</autor>
+		<anyPublicacio>2020</anyPublicacio>
+		<editorial>canalla</editorial>
+		<nombrePagines>3</nombrePagines></llibre>
+	<llibre>
+		<identificador>2</identificador><titol>El pepe</titol>
+		<autor>Pepe</autor>
+		
+		<anyPublicacio>1999</anyPublicacio>
+		<editorial>Factory don't read</editorial>
+		<nombrePagines>420</nombrePagines></llibre></llibres>
