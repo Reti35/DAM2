@@ -61,11 +61,11 @@ public class Main {
 				llibre.setIdentificador(identificador);
 				
 				System.out.println("Introduiu el titol : ");
-				titol = sc.nextLine();
+				titol = sc.next();
 				llibre.setTitol(titol);
 				
 				System.out.println("Introduiu l'autor : ");
-				autor = sc.nextLine();
+				autor = sc.next();
 				llibre.setAutor(autor);
 				
 				System.out.println("Introduiu l'any de publicació : ");
@@ -73,7 +73,7 @@ public class Main {
 				llibre.setAnyPublicacio(anyPublicacio);
 				
 				System.out.println("Introduiu l'editorial : ");
-				editorial = sc.nextLine();
+				editorial = sc.next();
 				llibre.setEditorial(editorial);
 				
 				System.out.println("Introduiu el nombre de pagines : ");

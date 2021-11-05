@@ -187,11 +187,11 @@ public class Biblioteca {
 		borrarLlibre(identificador);
 
 		System.out.println("Introduiu el titol : ");
-		String titol = sc.nextLine();
+		String titol = sc.next();
 		llibre.setTitol(titol);
 
 		System.out.println("Introduiu l'autor : ");
-		String autor = sc.nextLine();
+		String autor = sc.next();
 		llibre.setAutor(autor);
 
 		System.out.println("Introduiu l'any de publicació : ");
@@ -199,7 +199,7 @@ public class Biblioteca {
 		llibre.setAnyPublicacio(anyPublicacio);
 
 		System.out.println("Introduiu l'editorial : ");
-		String editorial = sc.nextLine();
+		String editorial = sc.next();
 		llibre.setEditorial(editorial);
 
 		System.out.println("Introduiu el nombre de pagines : ");
