@@ -4,7 +4,6 @@ num1 = int(input("Introduce el numero minimo : "))
 num2 = int(input("Introduce el numero maximo : "))
 
 numRandom = random.randint(num1, num2)
-print(numRandom)
 numAdivinar = int(input("Numero aleatorio generado adivina el numero : "))
 
 while numRandom != numAdivinar:
