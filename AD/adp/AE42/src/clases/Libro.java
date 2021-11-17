@@ -1,5 +1,10 @@
 package clases;
 
+/**
+ * Clase libro
+ * @author René Ribera Medrano
+ *
+ */
 public class Libro {
 
 	String titol;
@@ -13,6 +18,15 @@ public class Libro {
 		
 	}
 
+	/**
+	 * 
+	 * @param titol
+	 * @param autor
+	 * @param anyNaixement
+	 * @param anyPublicacio
+	 * @param editorial
+	 * @param nombrePagines
+	 */
 	public Libro(String titol, String autor, int anyNaixement, int anyPublicacio, String editorial, int nombrePagines) {
 
 		this.titol = titol;
