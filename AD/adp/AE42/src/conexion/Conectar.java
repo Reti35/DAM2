@@ -7,6 +7,11 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
+/**
+ * La clase conexio es la que fa que es conecte a la base de dades
+ * @author René Ribera Medrano
+ *
+ */
 public class Conectar {
 
 	Connection conexion = null;
@@ -39,6 +44,10 @@ public class Conectar {
 
 	}
 
+	/**
+	 * 
+	 * @return
+	 */
 	public Connection getConexion() {
 		return conexion;
 	}

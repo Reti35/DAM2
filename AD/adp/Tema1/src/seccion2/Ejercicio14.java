@@ -1,4 +1,4 @@
-package Seccion2;
+package seccion2;
 
 import java.io.BufferedReader;
 import java.io.File;
