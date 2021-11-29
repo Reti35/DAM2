@@ -92,3 +92,5 @@ Caused by: java.util.zip.DataFormatException: invalid stored block lengths
 	at org.eclipse.jgit.internal.storage.file.Pack.decompress(Pack.java:370)
 	at org.eclipse.jgit.internal.storage.file.Pack.load(Pack.java:805)
 	... 27 common frames omitted
+2021-11-17 11:43:51,986 [Worker-0: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+2021-11-23 10:41:28,741 [Worker-3: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is out-of-date. Trying to update.
