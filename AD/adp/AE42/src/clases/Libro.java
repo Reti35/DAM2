@@ -7,6 +7,7 @@ package clases;
  */
 public class Libro {
 
+	int id;
 	String titol;
 	String autor;
 	int anyNaixement;
@@ -27,8 +28,9 @@ public class Libro {
 	 * @param editorial
 	 * @param nombrePagines
 	 */
-	public Libro(String titol, String autor, int anyNaixement, int anyPublicacio, String editorial, int nombrePagines) {
+	public Libro(int id, String titol, String autor, int anyNaixement, int anyPublicacio, String editorial, int nombrePagines) {
 
+		this.id = id;
 		this.titol = titol;
 		this.autor = autor;
 		this.anyNaixement = anyNaixement;
@@ -36,6 +38,18 @@ public class Libro {
 		this.editorial = editorial;
 		this.nombrePagines = nombrePagines;
 
+	}
+
+	public int getId() {
+		
+		return id;
+		
+	}
+
+	public void setId(int id) {
+		
+		this.id = id;
+		
 	}
 
 	public String getTitol() {
