@@ -12,7 +12,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.WebView">
         <activity
-            android:name=".Splash"
+            android:name=".Info"
             android:exported="true" />
         <activity
             android:name=".MainActivity"

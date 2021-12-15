@@ -10,9 +10,7 @@ import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.EditText;
-import android.widget.Toast;
 
-import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class MainActivity extends AppCompatActivity {
@@ -129,7 +127,7 @@ public class MainActivity extends AppCompatActivity {
                 handler.postDelayed(new Runnable() {
                     @Override
                     public void run() {
-                        Intent intent=new Intent(MainActivity.this,Splash.class);
+                        Intent intent=new Intent(MainActivity.this, Info.class);
                         startActivity(intent);
                         finish();
                     }
